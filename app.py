@@ -77,7 +77,7 @@ def index():
         action = request.form.get('action')
 
         if action == 'switch_unit':
-            unit = 'imperial' if unit == 'metric' else 'metric'
+            unit = request.form.get('unit', 'metric')
             session['unit'] = unit
         elif action == 'calculate':
             try:

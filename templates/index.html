@@ -254,22 +254,22 @@
         <p class="subtitle">Калькулятор индекса массы тела</p>
 
         <div class="card">
+            <!-- Unit Toggle Form -->
+            <form method="POST" class="unit-toggle">
+                <input type="hidden" name="action" value="switch_unit">
+                <button type="submit" name="unit" value="metric"
+                        class="unit-btn {% if unit == 'metric' %}active{% endif %}">
+                    Metric (Метрическая)
+                </button>
+                <button type="submit" name="unit" value="imperial"
+                        class="unit-btn {% if unit == 'imperial' %}active{% endif %}">
+                    Imperial (Имперская)
+                </button>
+            </form>
+
+            <!-- Calculator Form -->
             <form method="POST">
                 <input type="hidden" name="action" value="calculate">
-
-                <div class="unit-toggle">
-                    <button type="submit" name="unit" value="metric"
-                            class="unit-btn {% if unit == 'metric' %}active{% endif %}"
-                            onclick="this.form.action.value='switch_unit'">
-                        Metric (Метрическая)
-                    </button>
-                    <button type="submit" name="unit" value="imperial"
-                            class="unit-btn {% if unit == 'imperial' %}active{% endif %}"
-                            onclick="this.form.action.value='switch_unit'">
-                        Imperial (Имперская)
-                    </button>
-                </div>
-
                 <input type="hidden" name="unit" value="{{ unit }}">
 
                 <div class="form-group">
